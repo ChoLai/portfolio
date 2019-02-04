@@ -41,31 +41,15 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
           createPage({
             path: edge.node.frontmatter.path,
-            component: blogPost,
-            context: {
-              path: edge.node.frontmatter.path
-            }
+            component: blogPost
           })
-
-          if (edge.node.frontmatter.aliasPath) {
-            createPage({
-              path: edge.node.frontmatter.aliasPath,
-              component: blogPost,
-              context: {
-                path: edge.node.frontmatter.path
-              }
-            })
-          }
 
         })
 
         photos.forEach(photo => {
           createPage({
             path: photo.path,
-            component: photoComp,
-            context: {
-              path: photo.path
-            }
+            component: photoComp
           })
         })
 
